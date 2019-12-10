@@ -9,7 +9,7 @@ function pshazz:elevated:init {
 	}
 }
 
-function global:pshazz:git:prompt {
+function global:pshazz:elevated:prompt {
 	$vars = $global:pshazz.prompt_vars
 	$vars.elevated = $global:pshazz.elevated.prompt_char
 	$vars.elevated_user = $global:pshazz.elevated.user
