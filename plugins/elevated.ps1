@@ -3,13 +3,14 @@ function pshazz:elevated:init {
 	$elevated = [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544")
 
 	$global:pshazz.elevated = @{
-		elevated = $elevated;
+		elevated    = $elevated;
 		prompt_char = if ($elevated) { "#" } else { "$" };
+		user        = if ($elevated) { "root" } else { $env:username };
 	}
 }
 
 function global:pshazz:git:prompt {
 	$vars = $global:pshazz.prompt_vars
 	$vars.elevated = $global:pshazz.elevated.prompt_char
-	$vars.elevated_user = if ($global:pshazz.elevated.elevated) { "root" } else { $vars.user }
+	$vars.elevated_user = $global:pshazz.elevated.user
 }
