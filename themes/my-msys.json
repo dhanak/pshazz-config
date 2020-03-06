@@ -1,5 +1,5 @@
 {
-    "plugins": [ "git", "hg", "z", "aliases", "dircolors", "elevated" ],
+    "plugins": [ "z", "aliases", "dircolors", "elevated" ],
     "aliases": {
         "rm": [ "where" ]
     },
